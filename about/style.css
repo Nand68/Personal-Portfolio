@@ -72,7 +72,7 @@ p {
   animation-timing-function: linear;
   margin-right: 30px;
   animation-name: scroll;
-  animation-duration: 4s;
+  animation-duration: 6s;
   animation-iteration-count: infinite;
 }
 
@@ -84,7 +84,7 @@ p {
 }
 @media(max-width: 900px){
   #page5 h1{
-    font-size: 45px
+    font-size: 35px
   }
 }
 
