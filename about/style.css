@@ -46,60 +46,63 @@ p {
 }
 
 
-#page5 {
-    margin-top: 20%;
-    padding: 25px 100px;
-    width: 100%;
-    background-color: #C4BCB3;
-    border-top: 1px solid #2f2f2f;
-    border-bottom: 1px solid #2f2f2f;
 
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+#page5 {
+  padding: 25px 0;
+  width: 100%;
+  background-color: #C4BCB3;
+  border-top: 1px solid #2f2f2f;
+  border-bottom: 1px solid #2f2f2f;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 #page5::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 #page5 h1 {
-    font-size: 100px;
-    font-family: domain;
-    font-weight: 100;
-    display: inline-block;
-    /* background-color: red; */
-    animation-timing-function: linear;
-    margin-right: 30px;
-    animation-name: scroll;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
+  font-size: 100px;
+  font-family: domain;
+  font-weight: 100;
+  display: inline-block;
+  /* background-color: red; */
+  animation-timing-function: linear;
+  margin-right: 30px;
+  animation-name: scroll;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 #page5 h1 span {
-  
-    font-family: canopee;
-    background-color: #1b1b1b;
-    color: #C4BCB3;
-    padding: 0 12px;
+  font-family: canopee;
+  background-color: #1b1b1b;
+  color: #C4BCB3;
+  padding: 0 12px;
+}
+@media(max-width: 900px){
+  #page5 h1{
+    font-size: 45px
+  }
 }
 
 
 
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+      transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(calc(-100% - 34px));
-    }
+  100% {
+      transform: translateX(calc(-100% - 34px));
+  }
 }
 
 #page5:hover h1{
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
-
 
 .scroller {
     height: auto;
