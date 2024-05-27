@@ -1,49 +1,26 @@
-gsap.registerPlugin(ScrollTrigger);
+const scrollers = document.querySelectorAll(".scroller");
 
-document.addEventListener("DOMContentLoaded",function(){
-    const card = [
-       { id : "#card-1", endTranslateX: -2000, rotate: 45},
-       { id : "#card-2", endTranslateX: -1000, rotate: -30},
-       { id : "#card-3", endTranslateX: -2000, rotate: 45},
-       { id : "#card-4", endTranslateX: -1500, rotate: -30}
+// If a user hasn't opted in for recuded motion, then we add the animation
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
 
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+    // add data-animated="true" to every `.scroller` on the page
+    scroller.setAttribute("data-animated", true);
 
-    ];
+    // Make an array from the elements within `.scroller-inner`
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
 
-    ScrollTrigger.create({
-       trigger:".wrapper-404",
-       start:"top top",
-       end:"+=900vh",
-       scrub: 1,
-       pin: true,
-       onUpdate: (self) => {
-            gsap.to(".wrapper-404",{
-                   x: `${-350 * self.progress}vw`,
-                   duration: 0.5,
-                   ease: "power3.out",
-
-
-            });
-       },
-
-
+    // For each item in the array, clone it
+    // add aria-hidden to it
+    // add it into the `.scroller-inner`
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
     });
-
-    card.forEach((card) => {
-         ScrollTrigger.create({
-            trigger: "card.id",
-            start:"top top",
-            end:"+=1200vh",
-            scrub:1,
-            onUpdate: (self) => {
-                gsap.to(card.id,{
-                    x: `${card.endTranslateX * self.progress}px`,
-                    rotate:`${card.rotate * self.progress * 2}`,
-                    duration: 0.5,
-                    ease:"power3.out",
-
-                });
-            },
-         });
-    });
-});
+  });
+}
