@@ -72,7 +72,7 @@ p {
   animation-timing-function: linear;
   margin-right: 30px;
   animation-name: scroll;
-  animation-duration: 6s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
 }
 
